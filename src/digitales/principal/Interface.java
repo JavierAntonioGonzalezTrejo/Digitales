@@ -269,6 +269,44 @@ public class Interface extends javax.swing.JFrame {
 
     private void BotonConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConvertirActionPerformed
         // TODO add your handling code here:
+    	System.out.println("Hola");
+    	if(CheckDecimal1.isSelected() && CheckHex2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion;
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+    		
+    		respuestaEntera    = Conversions.CDecimalHexadecimalEntero(TextField1.getText().substring(0, point));
+    		System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+    		respuestaFraccion = Conversions.CDecimalHexadecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+    		
+    		TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+    		
+    	}
+    	
+    	if(CheckBCD1.isSelected() && CheckDec2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion;
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+    		
+    		respuestaEntera    = Conversions.CBcdDecimalEntero(TextField1.getText().substring(0, point));
+    		System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+    		//respuestaFraccion = Conversions.CDecimalHexadecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+    		
+    		TextField2.setText(respuestaEntera);// + "." + respuestaFraccion);
+    		
+    	}
     }//GEN-LAST:event_BotonConvertirActionPerformed
 
     private void MenuManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManualActionPerformed
