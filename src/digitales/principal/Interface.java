@@ -66,6 +66,11 @@ public class Interface extends javax.swing.JFrame {
 
         Group1.add(CheckBin1);
         CheckBin1.setText("Binario");
+        CheckBin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckBin1ActionPerformed(evt);
+            }
+        });
 
         Group1.add(CheckOct1);
         CheckOct1.setText("Octal");
@@ -108,6 +113,11 @@ public class Interface extends javax.swing.JFrame {
 
         Group2.add(CheckHex2);
         CheckHex2.setText("Hexadecimal");
+        CheckHex2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckHex2ActionPerformed(evt);
+            }
+        });
 
         Group2.add(CheckBCD2);
         CheckBCD2.setText("BCD");
@@ -273,6 +283,14 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CheckDecimal1ActionPerformed
 
+    private void CheckBin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBin1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckBin1ActionPerformed
+
+    private void CheckHex2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckHex2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckHex2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,8 +336,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckBCD2;
     private javax.swing.JCheckBox CheckBin1;
     private javax.swing.JCheckBox CheckBin2;
-    private javax.swing.JCheckBox CheckDec2;
-    private javax.swing.JCheckBox CheckDecimal1;
+    public static javax.swing.JCheckBox CheckDec2;
+    public static javax.swing.JCheckBox CheckDecimal1;
     private javax.swing.JCheckBox CheckHex1;
     private javax.swing.JCheckBox CheckHex2;
     private javax.swing.JCheckBox CheckOct1;
