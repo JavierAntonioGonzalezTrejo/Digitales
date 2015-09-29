@@ -253,7 +253,8 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuManualMenuKeyPressed
 
     private void BotonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLimpiarActionPerformed
-        // TODO add your handling code here:
+       TextField1.setText("");   // TODO add your handling code here:;
+             TextField2.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_BotonLimpiarActionPerformed
 
     private void BotonConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConvertirActionPerformed
