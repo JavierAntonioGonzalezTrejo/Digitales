@@ -25,27 +25,28 @@ public class Interface extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         Group1 = new javax.swing.ButtonGroup();
         Group2 = new javax.swing.ButtonGroup();
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        CheckDecimal1 = new javax.swing.JCheckBox();
+        CheckBin1 = new javax.swing.JCheckBox();
+        CheckOct1 = new javax.swing.JCheckBox();
+        CheckHex1 = new javax.swing.JCheckBox();
+        CheckBCD1 = new javax.swing.JCheckBox();
         TextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         TextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
+        CheckDec2 = new javax.swing.JCheckBox();
+        CheckBin2 = new javax.swing.JCheckBox();
+        CheckOct2 = new javax.swing.JCheckBox();
+        CheckHex2 = new javax.swing.JCheckBox();
+        CheckBCD2 = new javax.swing.JCheckBox();
         BotonLimpiar = new javax.swing.JButton();
         BotonConvertir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -56,21 +57,25 @@ public class Interface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Group1.add(jCheckBox1);
-        jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Decimal");
+        Group1.add(CheckDecimal1);
+        CheckDecimal1.setText("Decimal");
+        CheckDecimal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckDecimal1ActionPerformed(evt);
+            }
+        });
 
-        Group1.add(jCheckBox2);
-        jCheckBox2.setText("Binario");
+        Group1.add(CheckBin1);
+        CheckBin1.setText("Binario");
 
-        Group1.add(jCheckBox3);
-        jCheckBox3.setText("Octal");
+        Group1.add(CheckOct1);
+        CheckOct1.setText("Octal");
 
-        Group1.add(jCheckBox4);
-        jCheckBox4.setText("Hexadecimal");
+        Group1.add(CheckHex1);
+        CheckHex1.setText("Hexadecimal");
 
-        Group1.add(jCheckBox5);
-        jCheckBox5.setText("BCD");
+        Group1.add(CheckBCD1);
+        CheckBCD1.setText("BCD");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Número Convertido:");
@@ -88,21 +93,41 @@ public class Interface extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Selecciona la Base a Convertir:");
 
-        Group2.add(jCheckBox6);
-        jCheckBox6.setText("Decimal");
+        Group2.add(CheckDec2);
+        CheckDec2.setText("Decimal");
 
-        Group2.add(jCheckBox7);
-        jCheckBox7.setSelected(true);
-        jCheckBox7.setText("Binario");
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckDecimal1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckDec2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
 
-        Group2.add(jCheckBox8);
-        jCheckBox8.setText("Octal");
+        CheckDec2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CheckDec2StateChanged(evt);
+            }
+        });
 
-        Group2.add(jCheckBox9);
-        jCheckBox9.setText("Hexadecimal");
+        Group2.add(CheckBin2);
+        CheckBin2.setText("Binario");
 
-        Group2.add(jCheckBox10);
-        jCheckBox10.setText("BCD");
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckBin1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckBin2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
+        Group2.add(CheckOct2);
+        CheckOct2.setText("Octal");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckOct1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckOct2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
+        Group2.add(CheckHex2);
+        CheckHex2.setText("Hexadecimal");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckHex1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckHex2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
+        Group2.add(CheckBCD2);
+        CheckBCD2.setText("BCD");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckBCD1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckBCD2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
 
         BotonLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         BotonLimpiar.setText("Limpiar");
@@ -135,21 +160,21 @@ public class Interface extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BotonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox4)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jCheckBox5))))
+                            .addComponent(CheckOct1)
+                            .addComponent(CheckHex1)
+                            .addComponent(CheckBin1)
+                            .addComponent(CheckDecimal1)
+                            .addComponent(CheckBCD1))))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox10)
-                    .addComponent(jCheckBox9)
-                    .addComponent(jCheckBox6)
+                    .addComponent(CheckBin2)
+                    .addComponent(CheckBCD2)
+                    .addComponent(CheckHex2)
+                    .addComponent(CheckDec2)
                     .addComponent(jLabel4)
                     .addComponent(jLabel1)
                     .addComponent(TextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox8)
+                    .addComponent(CheckOct2)
                     .addComponent(BotonConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 22, Short.MAX_VALUE))
         );
@@ -166,30 +191,30 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox6)
+                        .addComponent(CheckDec2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox7)
+                        .addComponent(CheckBin2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox8)
+                        .addComponent(CheckOct2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox9)
+                        .addComponent(CheckHex2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox10))
+                        .addComponent(CheckBCD2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jCheckBox1)
+                        .addComponent(CheckDecimal1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox2)
+                        .addComponent(CheckBin1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox3)
+                        .addComponent(CheckOct1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox4)
+                        .addComponent(CheckHex1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox5)))
+                        .addComponent(CheckBCD1)))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonLimpiar)
@@ -237,6 +262,8 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        bindingGroup.bind();
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -256,6 +283,14 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuManualActionPerformed
 
+    private void CheckDec2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CheckDec2StateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckDec2StateChanged
+
+    private void CheckDecimal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckDecimal1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckDecimal1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,6 +300,8 @@ public class Interface extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+           
+           
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -289,27 +326,28 @@ public class Interface extends javax.swing.JFrame {
                 new Interface().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonConvertir;
     private javax.swing.JButton BotonLimpiar;
+    private javax.swing.JCheckBox CheckBCD1;
+    private javax.swing.JCheckBox CheckBCD2;
+    private javax.swing.JCheckBox CheckBin1;
+    private javax.swing.JCheckBox CheckBin2;
+    private javax.swing.JCheckBox CheckDec2;
+    private javax.swing.JCheckBox CheckDecimal1;
+    private javax.swing.JCheckBox CheckHex1;
+    private javax.swing.JCheckBox CheckHex2;
+    private javax.swing.JCheckBox CheckOct1;
+    private javax.swing.JCheckBox CheckOct2;
     private javax.swing.ButtonGroup Group1;
     private javax.swing.ButtonGroup Group2;
     private javax.swing.JMenuItem MenuManual;
     private javax.swing.JMenu MenuOpciones;
     private javax.swing.JTextField TextField1;
     private javax.swing.JTextField TextField2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -317,5 +355,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
