@@ -25,7 +25,6 @@ public class Interface extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         Group1 = new javax.swing.ButtonGroup();
         Group2 = new javax.swing.ButtonGroup();
@@ -95,10 +94,6 @@ public class Interface extends javax.swing.JFrame {
 
         Group2.add(CheckDec2);
         CheckDec2.setText("Decimal");
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckDecimal1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckDec2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
-
         CheckDec2.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 CheckDec2StateChanged(evt);
@@ -108,26 +103,14 @@ public class Interface extends javax.swing.JFrame {
         Group2.add(CheckBin2);
         CheckBin2.setText("Binario");
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckBin1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckBin2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
-
         Group2.add(CheckOct2);
         CheckOct2.setText("Octal");
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckOct1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckOct2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
 
         Group2.add(CheckHex2);
         CheckHex2.setText("Hexadecimal");
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckHex1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckHex2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
-
         Group2.add(CheckBCD2);
         CheckBCD2.setText("BCD");
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, CheckBCD1, org.jdesktop.beansbinding.ELProperty.create("${!selected}"), CheckBCD2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
 
         BotonLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         BotonLimpiar.setText("Limpiar");
@@ -262,8 +245,6 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -355,6 +336,5 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
