@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package digitales.principal;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Punto Crítiko
@@ -289,7 +292,7 @@ public class Interface extends javax.swing.JFrame {
     		
     	}
     	
-    	if(CheckBCD1.isSelected() && CheckDec2.isSelected()){
+    	/*if(CheckBCD1.isSelected() && CheckDec2.isSelected()){
     		int point=TextField1.getText().length() ;
     		String respuestaEntera;
     		String respuestaFraccion;
@@ -300,13 +303,168 @@ public class Interface extends javax.swing.JFrame {
     			}
     		}
     		
-    		respuestaEntera    = Conversions.CBcdDecimalEntero(TextField1.getText().substring(0, point));
+    		//respuestaEntera    = Conversions.CBcdDecimalEntero(TextField1.getText().substring(0, point));
     		System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
     		//respuestaFraccion = Conversions.CDecimalHexadecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
     		
-    		TextField2.setText(respuestaEntera);// + "." + respuestaFraccion);
+    		//TextField2.setText(respuestaEntera);// + "." + respuestaFraccion);
     		
-    	}
+    	}*/
+    	
+    	
+    	//BINARIO A BINARIO
+    	
+    	if(CheckBin1.isSelected() && CheckBin2.isSelected())
+		{		
+			int point=TextField1.getText().length();
+			String respuestaEntera;
+			String respuestaFraccion;
+			
+			for(int i =0; i < TextField1.getText().length(); i++){
+				if(TextField1.getText().charAt(i) == '.'){
+					point=i;
+					break;
+				}
+			}
+			
+			respuestaEntera = TextField1.getText().substring(0, point);
+    		respuestaFraccion = TextField1.getText().substring(point + 1, TextField1.getText().length());
+    		TextField2.setText(respuestaEntera + "." + respuestaFraccion);  
+		}		
+    	
+    	
+    	//BINARIO A DECIMAL
+    	
+    	if(CheckBin1.isSelected() && CheckDec2.isSelected())
+		{		
+			int point=TextField1.getText().length();
+			String respuestaEntera;
+			String respuestaFraccion;
+			int cont =0;
+			for(int i =0; i < TextField1.getText().length(); i++){
+				if(TextField1.getText().charAt(i) == '.'){
+					point=i;
+					cont=1;
+					break;
+				}
+			}		
+			try{
+				if(cont == 0)
+				{
+					respuestaEntera = Conversions.CBinarioDecimalEntero(TextField1.getText().substring(0, point));
+					TextField2.setText(respuestaEntera);
+				}
+				if(cont == 1)
+				{
+					if(TextField1.getText().substring(0, point).equals(""))
+					{
+						respuestaFraccion = Conversions.CBinarioDecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						TextField2.setText("0." + respuestaFraccion);
+					}
+					else
+					{
+						respuestaEntera = Conversions.CBinarioDecimalEntero(TextField1.getText().substring(0, point));
+						respuestaFraccion = Conversions.CBinarioDecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+					}
+								
+				}			
+			}
+			
+			catch(Exception e)
+			{
+				JOptionPane.showMessageDialog(null, "El numero introducido es incorrecto");
+			}
+		}    	
+    	
+    	//BINARIO A OCTAL
+    	
+    	if(CheckBin1.isSelected() && CheckOct2.isSelected())
+		{		
+			int point=TextField1.getText().length();
+			String respuestaEntera;
+			String respuestaFraccion;
+			int cont =0;
+			for(int i =0; i < TextField1.getText().length(); i++){
+				if(TextField1.getText().charAt(i) == '.'){
+					point=i;
+					cont=1;
+					break;
+				}
+			}		
+			try{
+				if(cont == 0)
+				{
+					respuestaEntera = Conversions.CBinarioOctalEntero(TextField1.getText().substring(0, point));
+					TextField2.setText(respuestaEntera);
+				}
+				if(cont == 1)
+				{
+					if(TextField1.getText().substring(0, point).equals(""))
+					{
+						respuestaFraccion = Conversions.CBinarioOctalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						TextField2.setText("0." + respuestaFraccion);
+					}
+					else
+					{
+						respuestaEntera = Conversions.CBinarioOctalEntero(TextField1.getText().substring(0, point));
+						respuestaFraccion = Conversions.CBinarioOctalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+					}
+								
+				}			
+			}
+			
+			catch(Exception e)
+			{
+				JOptionPane.showMessageDialog(null, "El numero introducido es incorrecto");
+			}
+		}    	
+    	  	  	
+    	//BINARIO A HEXA
+    	
+    	if(CheckBin1.isSelected() && CheckHex2.isSelected())
+		{		
+			int point=TextField1.getText().length();
+			String respuestaEntera;
+			String respuestaFraccion;
+			int cont =0;
+			for(int i =0; i < TextField1.getText().length(); i++){
+				if(TextField1.getText().charAt(i) == '.'){
+					point=i;
+					cont=1;
+					break;
+				}
+			}		
+			try{
+				if(cont == 0)
+				{
+					respuestaEntera = Conversions.CBinarioHexaEntero(TextField1.getText().substring(0, point));
+					TextField2.setText(respuestaEntera);
+				}
+				if(cont == 1)
+				{
+					if(TextField1.getText().substring(0, point).equals(""))
+					{
+						respuestaFraccion = Conversions.CBinarioHexaFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						TextField2.setText("0." + respuestaFraccion);
+					}
+					else
+					{
+						respuestaEntera = Conversions.CBinarioHexaEntero(TextField1.getText().substring(0, point));
+						respuestaFraccion = Conversions.CBinarioHexaFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+					}
+								
+				}			
+			}
+			
+			catch(Exception e)
+			{
+				JOptionPane.showMessageDialog(null, "El numero introducido es incorrecto");
+			}
+		}  
+    	
     }//GEN-LAST:event_BotonConvertirActionPerformed
 
     private void MenuManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManualActionPerformed

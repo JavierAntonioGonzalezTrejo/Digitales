@@ -1,5 +1,7 @@
 package digitales.principal;
 
+import javax.swing.JOptionPane;
+
 public final class Conversions {
 
 	private static short binary=2;
@@ -75,4 +77,266 @@ public final class Conversions {
 		resultado= resultadoPrevio.toString();
 		return resultado;
 	}
+	
+	//BINARIO A DECIMAL
+	public static String CBinarioDecimalEntero(String numeroaconvertir) throws Exception
+	{
+		for(int i=0; i<numeroaconvertir.length(); i++)
+		{
+			if(numeroaconvertir.charAt(i) != '0' && numeroaconvertir.charAt(i) != '1')
+			{
+				System.out.println(numeroaconvertir.charAt(i));
+				throw new Exception();
+			}
+		}
+		
+		String resultado;
+		System.out.println(numeroaconvertir);
+		int res=Integer.parseInt(numeroaconvertir,2);
+		resultado = Integer.toString(res);			
+		return resultado;
+	}
+	
+	public static String CBinarioDecimalFraccion(String numeroaconvertir) throws Exception
+	{
+		for(int i=0; i<numeroaconvertir.length(); i++)
+		{
+			if(numeroaconvertir.charAt(i) !='0' && numeroaconvertir.charAt(i) != '1')
+			{
+				System.out.println(numeroaconvertir.charAt(i));
+				throw new Exception();
+			}
+		}
+		double resultado = 0;
+		String resultadoFinal;
+		int j=0;
+		
+		
+		for(int i=0; i<numeroaconvertir.length();i++)
+		{
+			j++;
+			resultado = resultado + (1 /Math.pow(2, j)*Integer.parseInt("" + numeroaconvertir.charAt(i)));		
+		}
+			
+		resultadoFinal = Double.toString(resultado).substring(2, Double.toString(resultado).length());
+		return resultadoFinal;
+	}
+	
+	//BINARIO A OCTAL
+	
+	public static String CBinarioOctalEntero(String numeroaconvertir) throws Exception
+	{
+		int x = 0;
+		int y = 2;
+		String resultado = "";
+		
+		for(int i=0; i<numeroaconvertir.length(); i++)
+		{
+			if(numeroaconvertir.charAt(i) !='0' && numeroaconvertir.charAt(i) != '1')
+			{
+				throw new Exception();
+			}
+		}
+		
+		while(numeroaconvertir.length()%3 != 0)
+		{
+			numeroaconvertir = "0" + numeroaconvertir;
+			System.out.println(numeroaconvertir);
+		}
+		
+		for(int i=0; i<numeroaconvertir.length()/3; i++)
+		{
+			String cad = "";
+			for(int j=x; j<=y; j++)
+			{
+				cad = cad + numeroaconvertir.charAt(j);
+			}
+			
+			resultado = resultado + CBinarioDecimalEntero(cad);
+		
+			x = x+3;
+			y = y+3;
+			System.out.println(resultado);
+		}
+		
+		// QUITAR CEROS
+		
+		System.out.println(resultado);
+		return resultado;
+	}
+	
+	public static String CBinarioOctalFraccion(String numeroaconvertir) throws Exception
+	{
+		int x = 0;
+		int y = 2;
+		String resultado = "";
+		
+		for(int i=0; i<numeroaconvertir.length(); i++)
+		{
+			if(numeroaconvertir.charAt(i) !='0' && numeroaconvertir.charAt(i) != '1')
+			{
+				throw new Exception();
+			}
+		}
+		
+		while(numeroaconvertir.length()%3 != 0)
+		{
+			numeroaconvertir = numeroaconvertir + '0';
+			System.out.println(numeroaconvertir);
+		}
+		
+		for(int i=0; i<numeroaconvertir.length()/3; i++)
+		{
+			String cad = "";
+			for(int j=x; j<=y; j++)
+			{
+				cad = cad + numeroaconvertir.charAt(j);
+			}
+			resultado = resultado + CBinarioDecimalEntero(cad);
+			x = x+3;
+			y = y+3;
+			System.out.println(resultado);
+		}
+		return resultado;
+	}
+	
+	//BINARIO A HEXA
+	public static String CBinarioHexaEntero(String numeroaconvertir) throws Exception
+	{
+		int x = 0;
+		int y = 3;
+		String resultado = "";
+		String binDec = "";
+		
+		for(int i=0; i<numeroaconvertir.length(); i++)
+		{
+			if(numeroaconvertir.charAt(i) !='0' && numeroaconvertir.charAt(i) != '1')
+			{
+				throw new Exception();
+			}
+		}
+		
+		while(numeroaconvertir.length()%4 != 0)
+		{
+			numeroaconvertir = "0" + numeroaconvertir;
+			System.out.println(numeroaconvertir);
+		}
+		
+		for(int i=0; i<numeroaconvertir.length()/4; i++)
+		{
+			String cad = "";
+			for(int j=x; j<=y; j++)
+			{
+				cad = cad + numeroaconvertir.charAt(j);
+			}
+			
+			binDec = CBinarioDecimalEntero(cad);
+			
+			switch(binDec)
+			{
+			case "10":
+				resultado = resultado + "A";
+				break;
+			
+			case "11":
+				resultado = resultado + "B";
+				break;
+				
+			case "12":
+				resultado = resultado + "C";
+				break;
+				
+			case "13":
+				resultado = resultado + "D";
+				break;
+				
+			case "14":
+				resultado = resultado + "E";
+				break;
+				
+			case "15":
+				resultado = resultado + "F";
+				break;
+			default:
+				resultado = resultado + binDec;
+				break;
+			}	
+			x = x+4;
+			y = y+4;
+			System.out.println(resultado);
+		}
+		
+		// QUITAR CEROS
+		
+		return resultado;
+	}
+	
+	public static String CBinarioHexaFraccion(String numeroaconvertir) throws Exception
+	{
+		int x = 0;
+		int y = 3;
+		String resultado = "";
+		String binDec = "";
+		
+		for(int i=0; i<numeroaconvertir.length(); i++)
+		{
+			if(numeroaconvertir.charAt(i) !='0' && numeroaconvertir.charAt(i) != '1')
+			{
+				throw new Exception();
+			}
+		}
+		
+		while(numeroaconvertir.length()%4 != 0)
+		{
+			numeroaconvertir = numeroaconvertir + "0";
+			System.out.println(numeroaconvertir);
+		}
+		
+		for(int i=0; i<numeroaconvertir.length()/4; i++)
+		{
+			String cad = "";
+			for(int j=x; j<=y; j++)
+			{
+				cad = cad + numeroaconvertir.charAt(j);
+			}
+			binDec = CBinarioDecimalEntero(cad);
+		
+			switch(binDec)
+			{
+			case "10":
+				resultado = resultado + "A";
+				break;
+			
+			case "11":
+				resultado = resultado + "B";
+				break;
+				
+			case "12":
+				resultado = resultado + "C";
+				break;
+				
+			case "13":
+				resultado = resultado + "D";
+				break;
+				
+			case "14":
+				resultado = resultado + "E";
+				break;
+				
+			case "15":
+				resultado = resultado + "F";
+				break;
+			default:
+				resultado = resultado + binDec;
+				break;
+			}	
+			x = x+4;
+			y = y+4;
+	
+			System.out.println(resultado);
+		}
+		return resultado;
+	}
+	
+	
 }
