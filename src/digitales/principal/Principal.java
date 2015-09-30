@@ -6,6 +6,10 @@ package digitales.principal;
 public class Principal extends javax.swing.JFrame {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * param args the command line arguments
      */
 public Principal()
