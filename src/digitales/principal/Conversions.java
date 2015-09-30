@@ -1,12 +1,157 @@
 package digitales.principal;
 
+import javax.swing.JOptionPane;
+
 public final class Conversions {
 
 	private static short binary=2;
 	private static short octa=8;
 	private static short hexa=16;
+	private static char[]Octal={'0','1','2','3','4','5','6','7'};
 	private static char[]Hexadecimal={'0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?'};
 	private static char[]CHexa=      {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+
+
+public static String CDecimalOctalEntero(String numeroaconvertir){
+		StringBuffer resultadoPrevio = new StringBuffer();
+		StringBuffer buffer = new StringBuffer(numeroaconvertir);
+		StringBuffer resultadosDivsiones = new StringBuffer();
+		int residuo = 0;
+		int numeroEvaluar;
+		String resultado ="0";
+		while(!buffer.toString().equals("")){
+			for(int i=0;i<buffer.length();i++){
+				numeroEvaluar = residuo*10 + buffer.charAt(i) - '0';
+				if(numeroEvaluar/octa == 0 && (i==0 || i==1)){
+					residuo = numeroEvaluar;
+				}
+				else{
+					resultadosDivsiones.append(Octal[(numeroEvaluar/octa)]);
+					residuo = numeroEvaluar % octa;
+				}
+			}
+			buffer = new StringBuffer(resultadosDivsiones);
+			resultadosDivsiones = new StringBuffer();
+			resultadoPrevio.append(Octal[residuo]);
+			residuo = 0;
+		}
+		buffer = resultadoPrevio;
+		resultadoPrevio = new StringBuffer();
+		for(int i =0; i < buffer.length();i++){
+			resultadoPrevio.append(Octal[(buffer.charAt(i)-'0')]);
+		}
+		resultado = resultadoPrevio.reverse().toString();
+		return resultado;
+	}	
+		
+public static String COctalBinarioEntero(String numeroaconvertir){
+	int num;
+	int cont = 0;
+	String temp;
+	String salida;
+	for(int i=0;i<numeroaconvertir.length();i++)
+	{
+		temp = numeroaconvertir.charAt(i) + "";
+		if(Integer.parseInt(temp) > 7 ){
+			cont = 0;
+			break;
+		}
+		cont=1;
+	}
+	
+	if (cont == 0)
+		salida = "Error";
+	else	{
+	num = Integer.parseInt(numeroaconvertir,8);
+	salida = Integer.toBinaryString(num);
+	}
+	return salida;
+}	
+
+public static String COctalDecimalEntero(String numeroaconvertir){
+	
+	String temp;
+	String decimal;
+	int cont = 1;
+	for(int i=0;i<numeroaconvertir.length();i++)
+	{
+		temp = numeroaconvertir.charAt(i) + "";
+		if(Integer.parseInt(temp) > 7){
+			cont = 0;
+			break;
+		}
+		cont=1;
+	}
+	
+	if (cont == 0)
+		decimal = "Error";
+	else
+	{
+	int num = Integer.parseInt(numeroaconvertir,8);
+	num = Integer.parseInt(numeroaconvertir,8);
+	decimal = Integer.toString(num);
+	}	
+	return decimal;
+}
+
+public static String COctalDecimalFraccion(String numeroaconvertir){
+	double resultado =0.0;
+	String salida;
+	int cont = 1;
+	String temp;
+	int j=0;
+		for(int i=0;i<numeroaconvertir.length() ;i++)
+		{
+			temp = numeroaconvertir.charAt(i) + "";
+			if(Integer.parseInt(temp) > 7 ){
+				cont = 0;
+				break;
+			}
+			cont=1;
+		}
+		
+		if (cont == 0)
+			salida = "  Error";
+		else
+		{
+		for(int i=0; i<numeroaconvertir.length();i++)
+		{
+			j++;
+			resultado = resultado + (1 /Math.pow(8, j)*Integer.parseInt("" + numeroaconvertir.charAt(i)));
+		}
+		salida = resultado + "";
+		}
+		return salida.substring(2, salida.length());
+}
+
+public static String COctalBinarioFraccion(String numeroaconvertir){
+	String resultado = "";
+	for(int K = 0; K < numeroaconvertir.length();K++)
+	{
+		if(numeroaconvertir.charAt(K) == '0')
+			resultado += "000";
+		else if(numeroaconvertir.charAt(K) == '1')
+			resultado += "001";
+		else if(numeroaconvertir.charAt(K) == '2')
+			resultado += "010";
+		else if(numeroaconvertir.charAt(K) == '3')
+			resultado += "011";
+		else if(numeroaconvertir.charAt(K) == '4')
+			resultado += "100";
+		else if(numeroaconvertir.charAt(K) == '5')
+			resultado += "101";
+		else if(numeroaconvertir.charAt(K) == '6')
+			resultado += "110";
+		else if(numeroaconvertir.charAt(K) == '7')
+			resultado += "111";
+		else 
+		{
+			resultado = "Error";
+			break;
+		}
+	}
+	return resultado;	
+}
 	
 	public static String CDecimalHexadecimalEntero(String numeroaconvertir){
 		StringBuffer resultadoPrevio = new StringBuffer(); //Esta variable contendra ala respuesta, pero esta estara al reves, de ahi su nombre.
@@ -51,7 +196,7 @@ public final class Conversions {
 		int residuoUnitario=0;
 		int numeroEvaluar;
 		String resultado="0";
-		for(int j = 0; j < 30 ; j++){ 
+		for(int j = 0; j < 10 ; j++){ 
 			for(int i = 0; i < buffer.length(); i++){ 
 				numeroEvaluar= buffer.charAt(i) - '0';
 				numeroEvaluar = numeroEvaluar*hexa + residuoUnitario;
@@ -63,7 +208,6 @@ public final class Conversions {
 			}
 			buffer = new StringBuffer(resultadosDivisiones); 
 			resultadosDivisiones =  new StringBuffer();
-			System.out.println(buffer.toString());
 			resultadoPrevio.append(Hexadecimal[residuoUnitario]);
 			residuoUnitario = 0;
 		}

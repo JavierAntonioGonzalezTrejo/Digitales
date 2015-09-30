@@ -268,8 +268,169 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonLimpiarActionPerformed
 
     private void BotonConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConvertirActionPerformed
+    	if(CheckOct1.isSelected() && CheckBin2.isSelected()){
+    		int control = 0;
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion;
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				control =1;
+    				break;
+    			}
+    		}		
+    		respuestaEntera = Conversions.COctalBinarioEntero(TextField1.getText().substring(0, point));
+    		if(control ==1)
+    			{
+    			respuestaFraccion = Conversions.COctalBinarioFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+    			if(respuestaFraccion.compareTo("Error") == 0 || respuestaEntera.compareTo("Error") == 0)
+    				TextField2.setText("Error, checa tu entrada");
+    			else
+    			TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+    		}
+    		else
+    			if(respuestaEntera.compareTo("Error") == 0)
+    				TextField2.setText("Error, checa tu entrada");
+    			else
+    				TextField2.setText(respuestaEntera);
+
+    	}
+    	
+    	
+    	if(CheckOct1.isSelected() && CheckDec2.isSelected()){
+    		int control = 0;
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion;
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				control =1;
+    				break;
+    			}
+    		}
+    		respuestaEntera = Conversions.COctalDecimalEntero(TextField1.getText().substring(0, point));
+    		if(control ==1)
+    		{
+    		respuestaFraccion = Conversions.COctalDecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+    		if(respuestaFraccion.compareTo("Error") == 0 || respuestaEntera.compareTo("Error") == 0)
+    			TextField2.setText("Error, checa tu entrada");
+    		else
+    			TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+    		}
+    		else
+    			if(respuestaEntera.compareTo("Error") == 0)
+    				TextField2.setText("Error, checa tu entrada");
+    			else
+    				TextField2.setText(respuestaEntera);	
+    	}
+    	
+    	if(CheckOct1.isSelected() && CheckHex2.isSelected())
+    	{
+    		int control = 0;
+    		int ctrl = 1;
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion;
+    		String resultadoenDecimal = "";
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				control =1;
+    				break;
+    			}
+    		}
+    		respuestaEntera = Conversions.COctalDecimalEntero(TextField1.getText().substring(0, point));
+    		if(control ==1)
+    		{
+    		respuestaFraccion = Conversions.COctalDecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+    		if(respuestaFraccion.compareTo("Error") == 0 || respuestaEntera.compareTo("Error") == 0)
+    		{
+    			TextField2.setText("Error, checa tu entrada");
+    			ctrl = 0;
+    		}
+    		else
+    			resultadoenDecimal = respuestaEntera + "." + respuestaFraccion;
+    		}
+    		else
+    			if(respuestaEntera.compareTo("Error") == 0){
+    				TextField2.setText("Error, checa tu entrada");
+    				ctrl = 0;
+    			}
+    			else
+    				resultadoenDecimal = respuestaEntera;	
+    		if(ctrl == 1)
+    		{
+    			point=resultadoenDecimal.length() ;
+    			for(int i =0; i < resultadoenDecimal.length(); i++){
+    				if(resultadoenDecimal.charAt(i) == '.'){
+    					point=i;
+    					control =1;
+    					break;
+    				}
+    			}
+    			
+        		respuestaEntera = Conversions.CDecimalHexadecimalEntero(resultadoenDecimal.substring(0, point));
+        		if (control ==1)
+        		{
+        			respuestaFraccion = Conversions.CDecimalHexadecimalFraccion(resultadoenDecimal.substring(point + 1, resultadoenDecimal.length()));
+        			TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+        		}
+        		else
+        			TextField2.setText(respuestaEntera);
+        		
+    			
+    		}
+    		else
+    			TextField2.setText("Error en la entrada");
+    	}
+    	
+    	
+    	if(CheckOct1.isSelected() && CheckOct2.isSelected())
+    	{
+    		int cont = 1;
+    		int control = 1;
+    		int point=TextField1.getText().length() ;
+    		String temp;
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				control =0;
+    				break;
+    			}
+    		}
+    		for(int i=0;i<TextField1.getText().substring(0, point).length() ;i++)
+    		{
+    			temp = TextField1.getText().substring(0, point).charAt(i) + "";
+    			if(Integer.parseInt(temp) > 7 ){
+    				cont = 0;
+    				control=1;
+    				break;
+    			}
+    			cont=1;
+    		}
+    		if(control == 0){
+    		for(int i=0;i < TextField1.getText().substring(point+1).length();i++)
+    		{
+    			temp = TextField1.getText().substring(point+1).charAt(i) + "";
+    			if(Integer.parseInt(temp) > 7 ){
+    				cont = 0;
+    				break;
+    			}
+    			cont=1;
+    		}
+    		}
+    		if (cont==0)
+    			TextField2.setText("Error, checa tu entrada");
+    		else
+    			TextField2.setText(TextField1.getText());
+    	}
+
+}
+    	
         // TODO add your handling code here:
-    	System.out.println("Hola");
+    	/*/System.out.println("Hola");
     	if(CheckDecimal1.isSelected() && CheckHex2.isSelected()){
     		int point=TextField1.getText().length() ;
     		String respuestaEntera;
@@ -304,10 +465,10 @@ public class Interface extends javax.swing.JFrame {
     		System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
     		//respuestaFraccion = Conversions.CDecimalHexadecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
     		
-    		TextField2.setText(respuestaEntera);// + "." + respuestaFraccion);
+    		TextField2.setText(respuestaEntera);// + "." + respuestaFraccion);*/
     		
-    	}
-    }//GEN-LAST:event_BotonConvertirActionPerformed
+    	
+    //GEN-LAST:event_BotonConvertirActionPerformed
 
     private void MenuManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManualActionPerformed
         // TODO add your handling code here:
