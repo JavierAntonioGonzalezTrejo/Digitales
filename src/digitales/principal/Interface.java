@@ -704,6 +704,88 @@ public class Interface extends javax.swing.JFrame {
 				}	
     	}
     	
+    	//Octal to Decimal
+    	if(CheckDecimal1.isSelected() && CheckOct2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion = "";
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+				try {
+					respuestaEntera    = Conversions.CDecimalOctalEntero(TextField1.getText().substring(0, point));
+			// + "." + respuestaFraccion);
+					//System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+					if(point < TextField1.getText().length())
+						respuestaFraccion = Conversions.CDecimalOctalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+					TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(this,"Numero incorrecto, porfavor vuelva a insertar el numero");
+				}	
+    	}
+    	
+    	if(CheckDecimal1.isSelected() && CheckDec2.isSelected()){
+    		String numeroaconvertir=TextField1.getText() ;
+			for(int i = 0; i < numeroaconvertir.length(); i++)
+    			if(numeroaconvertir.charAt(i) - '0' > 9)
+    				JOptionPane.showMessageDialog(this,"Numero incorrecto, porfavor vuelva a insertar el numero");
+			TextField2.setText(numeroaconvertir);
+    			
+    	}
+    	//BCD to Octal
+    	if(CheckBCD1.isSelected() && CheckOct2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion = "";
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+				try {
+					respuestaEntera    = Conversions.CBcdOctalEntero(TextField1.getText().substring(0, point));
+			// + "." + respuestaFraccion);
+					//System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+					if(point < TextField1.getText().length())
+						respuestaFraccion = Conversions.CBcdOctalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+					TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(this,"Numero incorrecto, porfavor vuelva a insertar el numero");
+				}	
+    	}
+    	
+    	if(CheckBCD1.isSelected() && CheckBCD2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion = "";
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+				try {
+					respuestaEntera    = Conversions.CBcdBcdEntero(TextField1.getText().substring(0, point));
+			// + "." + respuestaFraccion);
+					//System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+					if(point < TextField1.getText().length())
+						respuestaFraccion = Conversions.CBcdBcdFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+					TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(this,"Numero incorrecto, porfavor vuelva a insertar el numero");
+				}	
+    	}
+    	
     	
     }
 

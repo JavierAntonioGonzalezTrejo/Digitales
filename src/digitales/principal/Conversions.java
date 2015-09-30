@@ -10,7 +10,10 @@ public final class Conversions {
 	private static char[]CHexa=      {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 
 
-public static String CDecimalOctalEntero(String numeroaconvertir){
+public static String CDecimalOctalEntero(String numeroaconvertir) throws Exception{
+		for(int i = 0; i < numeroaconvertir.length(); i++)
+			if(numeroaconvertir.charAt(i) - '0' > 9)
+				throw new Exception();
 		StringBuffer resultadoPrevio = new StringBuffer();
 		StringBuffer buffer = new StringBuffer(numeroaconvertir);
 		StringBuffer resultadosDivsiones = new StringBuffer();
@@ -40,7 +43,43 @@ public static String CDecimalOctalEntero(String numeroaconvertir){
 		}
 		resultado = resultadoPrevio.reverse().toString();
 		return resultado;
-	}	
+	}
+
+public static String CDecimalOctalFraccion(String numeroaconvertir) throws Exception{
+	for(int i = 0; i < numeroaconvertir.length(); i++)
+		if(numeroaconvertir.charAt(i) - '0' > 7)
+			throw new Exception();
+	StringBuffer resultadoPrevio = new StringBuffer(); 
+	StringBuffer buffer= new StringBuffer (numeroaconvertir);
+	buffer.reverse();
+	StringBuffer resultadosDivisiones = new StringBuffer();
+	int residuoUnitario=0;
+	int numeroEvaluar;
+	String resultado="0";
+	for(int j = 0; j < 10 ; j++){ 
+		for(int i = 0; i < buffer.length(); i++){ 
+			numeroEvaluar= buffer.charAt(i) - '0';
+			numeroEvaluar = numeroEvaluar*hexa + residuoUnitario;
+			if(numeroEvaluar >= 10){
+				residuoUnitario= numeroEvaluar/10;
+				numeroEvaluar-= residuoUnitario*10;
+			}
+			resultadosDivisiones.append(""+ numeroEvaluar);
+		}
+		buffer = new StringBuffer(resultadosDivisiones); 
+		resultadosDivisiones =  new StringBuffer();
+		System.out.println(buffer.toString());
+		resultadoPrevio.append(Hexadecimal[residuoUnitario]);
+		residuoUnitario = 0;
+	}
+	buffer = resultadoPrevio;
+	resultadoPrevio = new StringBuffer();
+	for(int i =0; i < buffer.length();i++){
+		resultadoPrevio.append(CHexa[buffer.charAt(i)-'0']);
+	}
+	resultado= resultadoPrevio.toString();
+	return resultado;
+}
 		
 public static String COctalBinarioEntero(String numeroaconvertir){
 	int num;
@@ -564,6 +603,19 @@ public static String COctalBinarioFraccion(String numeroaconvertir){
 	}	
 
 	
+	public static String CBcdOctalEntero(String numeroaconvertir) throws Exception{
+		String decimal = Conversions.CBcdDecimalEntero(numeroaconvertir);
+		
+		return Conversions.CDecimalOctalEntero(decimal);
+	}
+	
+	
+	public static String CBcdOctalFraccion(String numeroaconvertir) throws Exception {
+		String decimal = Conversions.CBcdDecimalFraccion(numeroaconvertir);
+		
+		return Conversions.CDecimalOctalFraccion(decimal);
+	}
+	
 	public static String CBcdHexadecimalEntero(String numeroaconvertir) throws Exception{
 		String decimal = Conversions.CBcdDecimalEntero(numeroaconvertir);
 		
@@ -577,7 +629,18 @@ public static String COctalBinarioFraccion(String numeroaconvertir){
 		return Conversions.CDecimalHexadecimalFraccion(decimal);
 	}
 	
+	public static String CBcdBcdEntero(String numeroaconvertir) throws Exception{
+		String decimal = Conversions.CBcdDecimalEntero(numeroaconvertir);
+		
+		return Conversions.CDecimalBCDEntero(decimal);
+	}
 	
+	
+	public static String CBcdBcdFraccion(String numeroaconvertir) throws Exception {
+		String decimal = Conversions.CBcdDecimalFraccion(numeroaconvertir);
+		
+		return Conversions.CDecimalBCDFraccion(decimal);
+	}
 
 	
 	///////////////////////////////////////////////////////////////////////
