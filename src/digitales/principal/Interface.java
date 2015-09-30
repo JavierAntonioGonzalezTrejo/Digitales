@@ -35,7 +35,6 @@ public class Interface extends javax.swing.JFrame {
 
         Group1 = new javax.swing.ButtonGroup();
         Group2 = new javax.swing.ButtonGroup();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         CheckDecimal1 = new javax.swing.JCheckBox();
         CheckBin1 = new javax.swing.JCheckBox();
@@ -55,11 +54,6 @@ public class Interface extends javax.swing.JFrame {
         CheckBCD2 = new javax.swing.JCheckBox();
         BotonLimpiar = new javax.swing.JButton();
         BotonConvertir = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        MenuOpciones = new javax.swing.JMenu();
-        MenuManual = new javax.swing.JMenuItem();
-
-        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,13 +83,13 @@ public class Interface extends javax.swing.JFrame {
         CheckBCD1.setText("BCD");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Número Convertido:");
+        jLabel1.setText("Numero Convertido:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Selecciona la Base de tu Número:");
+        jLabel2.setText("Selecciona la Base de tu Numero:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Ingresa el Número a Convertir:");
+        jLabel3.setText("Ingresa el Numero a Convertir:");
 
         TextField2.setEditable(false);
         TextField2.setBackground(new java.awt.Color(255, 255, 255));
@@ -222,29 +216,6 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
-        MenuOpciones.setText("Opciones");
-
-        MenuManual.setText("Manual");
-        MenuManual.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
-            public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
-                MenuManualMenuKeyPressed(evt);
-            }
-            public void menuKeyReleased(javax.swing.event.MenuKeyEvent evt) {
-            }
-            public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
-            }
-        });
-        MenuManual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuManualActionPerformed(evt);
-            }
-        });
-        MenuOpciones.add(MenuManual);
-
-        jMenuBar1.add(MenuOpciones);
-
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,9 +236,6 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuManualMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_MenuManualMenuKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MenuManualMenuKeyPressed
 
     private void BotonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLimpiarActionPerformed
        TextField1.setText("");   // TODO add your handling code here:;
@@ -789,9 +757,6 @@ public class Interface extends javax.swing.JFrame {
     	
     }
 
-    private void MenuManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManualActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MenuManualActionPerformed
 
     private void CheckDec2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CheckDec2StateChanged
         // TODO add your handling code here:
@@ -862,16 +827,12 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckOct2;
     private javax.swing.ButtonGroup Group1;
     private javax.swing.ButtonGroup Group2;
-    private javax.swing.JMenuItem MenuManual;
-    private javax.swing.JMenu MenuOpciones;
     private javax.swing.JTextField TextField1;
     private javax.swing.JTextField TextField2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
