@@ -570,7 +570,7 @@ public class Interface extends javax.swing.JFrame {
     	}
     	
 
-    	if(CheckBCD1.isSelected() && CheckDec2.isSelected()){
+    
 
     	//Hexadecimal to binario
     	if(CheckHex1.isSelected() && CheckBin2.isSelected()){
@@ -607,7 +607,7 @@ public class Interface extends javax.swing.JFrame {
 		{		
 			int point=TextField1.getText().length();
 			String respuestaEntera;
-			String respuestaFraccion;
+			String respuestaFraccion = "";
 			
 			for(int i =0; i < TextField1.getText().length(); i++){
 				if(TextField1.getText().charAt(i) == '.'){
@@ -617,7 +617,8 @@ public class Interface extends javax.swing.JFrame {
 			}
 			
 			respuestaEntera = TextField1.getText().substring(0, point);
-    		respuestaFraccion = TextField1.getText().substring(point + 1, TextField1.getText().length());
+			if(point < TextField1.getText().length())
+				respuestaFraccion = TextField1.getText().substring(point + 1, TextField1.getText().length());
     		TextField2.setText(respuestaEntera + "." + respuestaFraccion);  
 		}		
     	
@@ -754,7 +755,7 @@ public class Interface extends javax.swing.JFrame {
 			}
 		}  
     	
-    	}//GEN-LAST:event_BotonConvertirActionPerformed
+    	//GEN-LAST:event_BotonConvertirActionPerformed
     		
     	
     	//BCD to Decimal
