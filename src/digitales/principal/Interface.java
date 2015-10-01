@@ -755,6 +755,56 @@ public class Interface extends javax.swing.JFrame {
 			}
 		}  
     	
+    	
+    	//BINARIO A BCD
+    	if(CheckBin1.isSelected() && CheckBCD2.isSelected())
+		{		
+			int point=TextField1.getText().length();
+			String respuestaEntera;
+			String respuestaFraccion;
+			int cont =0;
+			for(int i =0; i < TextField1.getText().length(); i++){
+				if(TextField1.getText().charAt(i) == '.'){
+					point=i;
+					cont=1;
+					break;
+				}
+			}		
+			try{
+				if(cont == 0)
+				{
+					respuestaEntera = Conversions.CBinarioDecimalEntero(TextField1.getText().substring(0, point));
+					respuestaEntera = Conversions.CDecimalBCDEntero(respuestaEntera);
+					TextField2.setText(respuestaEntera);
+				}
+				if(cont == 1)
+				{
+					if(TextField1.getText().substring(0, point).equals(""))
+					{
+						respuestaFraccion = Conversions.CBinarioDecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						respuestaFraccion = Conversions.CDecimalBCDFraccion(respuestaFraccion);
+						TextField2.setText("0." + respuestaFraccion);
+					}
+					else
+					{
+						respuestaEntera = Conversions.CBinarioDecimalEntero(TextField1.getText().substring(0, point));
+						respuestaEntera = Conversions.CDecimalBCDEntero(respuestaEntera);
+						
+						respuestaFraccion = Conversions.CBinarioDecimalFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						respuestaFraccion = Conversions.CDecimalBCDFraccion(respuestaFraccion);
+						TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+					}
+								
+				}			
+			}
+			
+			catch(Exception e)
+			{
+				JOptionPane.showMessageDialog(null, "El numero introducido es incorrecto");
+			}
+		}  
+    	
+    	
     	//GEN-LAST:event_BotonConvertirActionPerformed
     		
     	
