@@ -966,6 +966,120 @@ public class Interface extends javax.swing.JFrame {
 				}	
     	}
     	
+    	//Hexadecimal to Decimal
+    	if(CheckHex1.isSelected() && CheckDec2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion = "";
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+				try {
+					respuestaEntera    = Conversions.CHexadecimalBinarioEntero(TextField1.getText().substring(0, point));
+					respuestaEntera    = Conversions.CBinarioDecimalEntero(respuestaEntera);
+			// + "." + respuestaFraccion);
+					//System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+					if(point < TextField1.getText().length()){
+						respuestaFraccion = Conversions.CHexadecimalBinarioFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						respuestaFraccion = Conversions.CBinarioDecimalEntero(respuestaFraccion);
+					}
+					TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(this,"Numero incorrecto, porfavor vuelva a insertar el numero");
+				}	
+    	}
+    	//Hexadecimal to Octal
+    	if(CheckHex1.isSelected() && CheckOct2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion = "";
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+				try {
+					respuestaEntera    = Conversions.CHexadecimalBinarioEntero(TextField1.getText().substring(0, point));
+					respuestaEntera    = Conversions.CBinarioOctalEntero(respuestaEntera);
+			// + "." + respuestaFraccion);
+					//System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+					if(point < TextField1.getText().length()){
+						respuestaFraccion = Conversions.CHexadecimalBinarioFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						respuestaFraccion = Conversions.CBinarioOctalEntero(respuestaFraccion);
+					}
+					TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(this,"Numero incorrecto, porfavor vuelva a insertar el numero");
+				}	
+    	}
+    	
+    	//Hexadecimal to Hex
+    	if(CheckHex1.isSelected() && CheckHex2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion = "";
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+				try {
+					respuestaEntera    = Conversions.CHexadecimalBinarioEntero(TextField1.getText().substring(0, point));
+					respuestaEntera    = Conversions.CBinarioHexaEntero(respuestaEntera);
+			// + "." + respuestaFraccion);
+					//System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+					if(point < TextField1.getText().length()){
+						respuestaFraccion = Conversions.CHexadecimalBinarioFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						respuestaFraccion = Conversions.CBinarioHexaEntero(respuestaFraccion);
+					}
+					TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(this,"Numero incorrecto, porfavor vuelva a insertar el numero");
+				}	
+    	}
+
+
+    	//Hexadecimal to BCD
+    	if(CheckHex1.isSelected() && CheckBCD2.isSelected()){
+    		int point=TextField1.getText().length() ;
+    		String respuestaEntera;
+    		String respuestaFraccion = "";
+    		for(int i =0; i < TextField1.getText().length(); i++){
+    			if(TextField1.getText().charAt(i) == '.'){
+    				point=i;
+    				break;
+    			}
+    		}
+				try {
+					respuestaEntera    = Conversions.CHexadecimalBinarioEntero(TextField1.getText().substring(0, point));
+					respuestaEntera    = Conversions.CBinarioDecimalEntero(respuestaEntera);
+					respuestaEntera    = Conversions.CDecimalBCDEntero(respuestaEntera);
+			// + "." + respuestaFraccion);
+					//System.out.println(TextField1.getText().substring(point, TextField1.getText().length()));
+					if(point < TextField1.getText().length()){
+						respuestaFraccion = Conversions.CHexadecimalBinarioFraccion(TextField1.getText().substring(point + 1, TextField1.getText().length()));
+						respuestaFraccion = Conversions.CBinarioDecimalEntero(respuestaFraccion);
+						respuestaFraccion = Conversions.CDecimalBCDFraccion(respuestaFraccion);
+					}
+					TextField2.setText(respuestaEntera + "." + respuestaFraccion);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(this,"Numero incorrecto, porfavor vuelva a insertar el numero");
+				}	
+    	}
+
     	
     }
 

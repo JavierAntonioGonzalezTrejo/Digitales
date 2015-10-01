@@ -699,9 +699,7 @@ public static String COctalBinarioFraccion(String numeroaconvertir){
 	///////////////////////////////////////////////////////////////////////
 	
 	public static String CHexadecimalBinarioEntero(String numeroaconvertir) throws Exception{
-		for(int i = 0; i < numeroaconvertir.length(); i++)
-			if(numeroaconvertir.charAt(i) - '0' > 15)
-				throw new Exception();
+		
 		StringBuffer resultado = new StringBuffer();
 		StringBuffer numero = new StringBuffer(numeroaconvertir);
 		numero.reverse();
@@ -740,6 +738,7 @@ public static String COctalBinarioFraccion(String numeroaconvertir){
 				break;
 			case 'F': resultado.append("1111");
 				break;
+			default: throw new Exception();
 			}
 			
 		}
